@@ -1,4 +1,3 @@
-# %% [markdown]
 # loan_amnt = valor do empréstimo
 # 
 # term = prazo do empréstimo 
@@ -54,6 +53,59 @@
 # address	= endereço
 
 # %% [markdown]
+# loan_amnt = valor do empréstimo
+# 
+# term = prazo do empréstimo 
+# 
+# int_rate = taxa de juros
+# 
+# nstallment	= valor da parcela
+# 
+# grade	= classificação de risco
+# 
+# sub_grade	= sub-classificação de risco
+# 
+# emp_title	= cargo / profissão
+# 
+# emp_length	= tempo de emprego
+# 
+# home_ownership	= tipo de moradia
+# 
+# annual_inc	= renda anual
+# 
+# verification_status	= status de verificação da renda
+# 
+# issue_d	= data de emissão do empréstimo
+# 
+# loan_status	= status do empréstimo
+# 
+# purpose	= finalidade do empréstimo
+# 
+# title	= título / descrição do empréstimo
+# 
+# dti	= relação dívida-renda
+# 
+# earliest_cr_line	= primeira linha de crédito
+# 
+# open_acc	= contas de crédito abertas
+# 
+# pub_rec	= registros públicos negativos
+# 
+# revol_bal	= saldo de crédito rotativo
+# 
+# revol_util	= utilização do crédito rotativo
+# 
+# total_acc	= total de contas de crédito
+# 
+# initial_list_status	= status inicial de listagem
+# 
+# application_type	= tipo de aplicação
+# 
+# mort_acc	= contas de hipoteca
+# 
+# pub_rec_bankruptcies	= registros de falência
+# 
+# address	= endereço
 # ## Modelo de predição Score de crédito
 # 
 
@@ -99,40 +151,3 @@ df["pub_rec_bankruptcies"] = df["pub_rec_bankruptcies"].fillna(df["pub_rec_bankr
 df.isna().sum()
 
 # %%
-data_empregos = {
-    "< 1 year":0,
-    "1 year":1,
-    "2 years":2,
-    "3 years":3,
-    "4 years":4,
-    "5 years":5,
-    "6 years":6,
-    "7 years":7,
-    "8 years":8,
-    "9 years":9,
-    "10+ years":10
-}
-
-# %%
-df["emp_length"] = df["emp_length"].map(data_empregos)
-
-# %%
-df["emp_length"] = df["emp_length"].fillna(df["emp_length"]).median()
-
-# %%
-df = df.drop(["title", "emp_title", "initial_list_status", "verification_status"], axis=1)
-
-# %%
-df = df.drop(["grade", "sub_grade"], axis=1)
-
-# %%
-df.isnull().sum()
-
-# %%
-df.info()
-
-# %%
-
-
-
-
